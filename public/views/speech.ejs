@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/speech.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/addons/p5.dom.js"></script>
+    <script src="/p5.speech.js"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <title>Document</title>
+  </head>
+  <body>
+    <!--  -->
+    <img src="../images/icons/Group 1.svg" alt="" class="overlay" />
+    <div class="od-container">
+      <nav class="top-banner">
+        <img id="back" src="../images/icons/back.svg" alt="" />
+        <div class="top-text">Speech Recognition</div>
+        <img src="../images/icons/more.svg" alt="" id="dots" />
+      </nav>
+      <div class="container-txt">
+        <h2 class="name-greeting" style="font-family: Product Sans">
+          Hi, <%- username %>
+        </h2>
+        <p id="bot-output" class="output">Hoe kan ik je helpen?</p>
+      </div>
+      <img id="imageurl" src="" alt="prompt-image" />
+      <p class="output" id="output"></p>
+    </div>
+    <script
+      type="module"
+      src="../../assets/javascript/speech.js"
+      defer
+    ></script>
+  </body>
+</html>

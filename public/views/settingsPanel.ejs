@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/styles/main.css" />
+    <link rel="stylesheet" href="../assets//styles/settings.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-gray-100">
+  <body class="h-full">
+  ```
+-->
+    <div class="min-h-full">
+      <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 items-center justify-between">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <img
+                  class="h-8 w-8"
+                  src="../assets/images/icons/Group 1 (1).svg"
+                  alt="Your Company"
+                />
+              </div>
+              <div class="hidden md:block">
+                <div class="ml-10 flex items-baseline space-x-4">
+                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                  <a
+                    href="#"
+                    class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                    aria-current="page"
+                    >Dashboard</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="hidden md:block">
+              <div class="ml-4 flex items-center md:ml-6">
+                <button
+                  type="button"
+                  class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                >
+                  <span class="absolute -inset-1.5"></span>
+                  <span class="sr-only">View notifications</span>
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+                    />
+                  </svg>
+                </button>
+
+                <!-- Profile dropdown -->
+                <div class="relative ml-3" id="profile">
+                  <div>
+                    <button
+                      type="button"
+                      class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                      id="user-menu-button"
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                    >
+                      <span class="absolute -inset-1.5"></span>
+                      <span class="sr-only">Open user menu</span>
+                      <img
+                        class="h-8 w-8 rounded-full"
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt=""
+                      />
+                    </button>
+                  </div>
+
+                  <!--
+                  Dropdown menu, show/hide based on menu state.
+  
+                  Entering: "transition ease-out duration-100"
+                    From: "transform opacity-0 scale-95"
+                    To: "transform opacity-100 scale-100"
+                  Leaving: "transition ease-in duration-75"
+                    From: "transform opacity-100 scale-100"
+                    To: "transform opacity-0 scale-95"
+                -->
+                  <div
+                    class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="user-menu-button"
+                    tabindex="-1"
+                    id="uitloggen"
+                  >
+                    <!-- Active: "bg-gray-100", Not Active: "" -->
+
+                    <form action="/logout" method="post">
+                      <input
+                        class="block px-4 py-2 text-sm text-gray-700"
+                        type="submit"
+                        value="Uitloggen"
+                        role="menuitem"
+                        tabindex="-1"
+                        id="user-menu-item-2"
+                      />
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="-mr-2 flex md:hidden">
+              <!-- Mobile menu button -->
+              <button
+                type="button"
+                class="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+                id="open-menu"
+              >
+                <span class="absolute -inset-0.5"></span>
+                <span class="sr-only">Open main menu</span>
+                <!-- Menu open: "hidden", Menu closed: "block" -->
+                <svg
+                  class="block h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+                <!-- Menu open: "block", Menu closed: "hidden" -->
+
+                <svg
+                  class="hidden h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="md:hidden hidden" id="mobile-menu">
+          <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a
+              href="#"
+              class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+              aria-current="page"
+              >Dashboard</a
+            >
+          </div>
+          <div class="border-t border-gray-700 pb-3 pt-4">
+            <div class="flex items-center px-5">
+              <div class="flex-shrink-0">
+                <img
+                  class="h-10 w-10 rounded-full"
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                />
+              </div>
+              <div class="ml-3">
+                <div class="text-base font-medium leading-none text-white">
+                  <%= name %>
+                </div>
+                <div class="text-sm font-medium leading-none text-gray-400">
+                  <%= email %>
+                </div>
+              </div>
+              <button
+                type="button"
+                class="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+              >
+                <span class="absolute -inset-1.5"></span>
+                <span class="sr-only">View notifications</span>
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="mt-3 space-y-1 px-2">
+              <a
+                href="#"
+                class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                >Your Profile</a
+              >
+              <a
+                href="#"
+                class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                >Settings</a
+              >
+
+              <form
+                action="/logout"
+                method="post"
+                class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+              >
+                <input
+                  class="block px-4 py-2 text-sm text-gray-700"
+                  type="submit"
+                  value="Sign out"
+                  role="menuitem"
+                  tabindex="-1"
+                  id="user-menu-item-2"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <header class="bg-white shadow dark:bg-slate-800">
+        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <h1
+            class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white"
+            id="listbox-label"
+          >
+            Settings
+          </h1>
+        </div>
+      </header>
+      <main class="dark:bg-slate-800" id="bright">
+        <div class="mx-auto max-w-7xl py-6 px-6 sm:px-6 lg:px-8">
+          <!-- Your content -->
+          <div
+            id="toast-success"
+            class="hidden dark:text-white flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+            role="alert"
+          >
+            <div
+              class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200"
+            >
+              <svg
+                class="w-5 h-5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+                />
+              </svg>
+              <span class="sr-only">Check icon</span>
+            </div>
+            <div id="alert-txt" class="ms-3 text-sm font-normal"></div>
+
+            <button
+              type="button"
+              class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+              data-dismiss-target="#toast-success"
+              aria-label="Close"
+              id="close-btn"
+            >
+              <span class="sr-only">Close</span>
+              <svg
+                class="w-3 h-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 14"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                />
+              </svg>
+            </button>
+          </div>
+          <div>
+            <label
+              id="listbox-label"
+              class="block text-sm font-medium leading-6 text-gray-900 dark:text-white"
+              >Switch tussen dark en light mode
+            </label>
+            <button
+              id="theme-toggle"
+              type="button"
+              class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+            >
+              <svg
+                id="theme-toggle-dark-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+              <svg
+                id="theme-toggle-light-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <br />
+          <div>
+            <label
+              id="listbox-label"
+              class="block text-sm font-medium leading-6 text-gray-900 dark:text-white"
+              >Spraak Taal</label
+            >
+            <div class="relative mt-2">
+              <button
+                type="button"
+                class="relative w-full cursor-default rounded-md bg-white dark:bg-slate-900 py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 dark:text-white focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                aria-haspopup="listbox"
+                aria-expanded="true"
+                aria-labelledby="listbox-label"
+                id="btn-dropdown"
+              >
+                <span class="flex items-center">
+                  <span class="ml-3 block truncate">Geselecteerde taal</span>
+                </span>
+                <span
+                  class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2"
+                >
+                  <svg
+                    class="h-5 w-5 text-gray-400"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </button>
+
+              <ul
+                class="hidden absolute dark:bg-slate-900 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+                tabindex="-1"
+                role="listbox"
+                aria-labelledby="listbox-label"
+                aria-activedescendant="listbox-option-0"
+                id="data-language-code-dropdown"
+              >
+                <li
+                  class="dark:text-white text-gray-900 relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-10"
+                  role="option"
+                >
+                  <span class="block truncate" data-language-code="nl-NL"
+                    >Nederlands (Nederland)</span
+                  >
+                </li>
+                <li
+                  class="dark:text-white text-gray-900 relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-0"
+                  role="option"
+                >
+                  <span class="block truncate" data-language-code="en-US"
+                    >Engels (Verenigde Staten)</span
+                  >
+                </li>
+                <li
+                  class="text-gray-900 dark:text-white relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-1"
+                  role="option"
+                >
+                  <span class="block truncate" data-language-code="en-GB"
+                    >Engels (Verenigd Koninkrijk)</span
+                  >
+                </li>
+                <li
+                  class="text-gray-900 dark:text-white relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-2"
+                  role="option"
+                >
+                  <span class="block truncate" data-language-code="fr-FR"
+                    >Frans</span
+                  >
+                </li>
+                <li
+                  class="text-gray-900 dark:text-white relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-3"
+                  role="option"
+                >
+                  <span class="block truncate" data-language-code="de-DE"
+                    >Duits</span
+                  >
+                </li>
+                <li
+                  class="text-gray-900 dark:text-white relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-4"
+                  role="option"
+                >
+                  <span class="block truncate" data-language-code="es-ES"
+                    >Spaans</span
+                  >
+                </li>
+                <li
+                  class="text-gray-900 dark:text-white relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-5"
+                  role="option"
+                >
+                  <span class="block truncate" data-language-code="it-IT"
+                    >Italiaans</span
+                  >
+                </li>
+                <li
+                  class="text-gray-900 dark:text-white relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-6"
+                  role="option"
+                >
+                  <span class="block truncate" data-language-code="ja-JP"
+                    >Japans</span
+                  >
+                </li>
+                <li
+                  class="text-gray-900 dark:text-white relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-7"
+                  role="option"
+                >
+                  <span class="block truncate" data-language-code="ko-KR"
+                    >Koreaans</span
+                  >
+                </li>
+                <li
+                  class="text-gray-900 dark:text-white relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-8"
+                  role="option"
+                >
+                  <span class="block truncate" data-language-code="pt-BR"
+                    >Portugees</span
+                  >
+                </li>
+                <li
+                  class="text-gray-900 dark:text-white relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-9"
+                  role="option"
+                >
+                  <span class="block truncate" data-language-code="ru-RU"
+                    >Russisch</span
+                  >
+                </li>
+                <li
+                  class="text-gray-900 dark:text-white relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-10"
+                  role="option"
+                >
+                  <span class="block truncate" data-language-code="zh-CN"
+                    >Chinees</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- languege -->
+
+          <br />
+          <div>
+            <label
+              id="listbox-label"
+              class="block text-sm font-medium leading-6 text-gray-900 dark:text-white"
+              >Spraak stem</label
+            >
+            <div class="relative mt-2">
+              <button
+                type="button"
+                class="relative w-full cursor-default rounded-md dark:bg-slate-900 dark:text-white bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                aria-haspopup="listbox"
+                aria-expanded="true"
+                aria-labelledby="listbox-label"
+                id="btn-dropdown-vc"
+              >
+                <span class="flex items-center">
+                  <span class="ml-3 block truncate">Geselecteerde stem</span>
+                </span>
+                <span
+                  class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2"
+                >
+                  <svg
+                    class="h-5 w-5 text-gray-400"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </button>
+
+              <ul
+                class="hidden dark:bg-slate-900 absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+                tabindex="-1"
+                role="listbox"
+                aria-labelledby="listbox-label"
+                aria-activedescendant="listbox-option-0"
+                id="data-voices-code-dropdown"
+              >
+                <li
+                  class="text-gray-900 dark:text-white relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-0"
+                  role="option"
+                >
+                  <span
+                    class="block truncate"
+                    data-voices="Microsoft Bart - Nederlands (België)"
+                  >
+                    Microsoft Bart - Nederlands (België)
+                  </span>
+                </li>
+                <li
+                  class="text-gray-900 dark:text-white relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-1"
+                  role="option"
+                  data-voices="Microsoft Frank - Dutch (Netherlands)"
+                >
+                  <span
+                    class="block truncate"
+                    data-voices="Microsoft Frank - Dutch (Netherlands)"
+                  >
+                    Microsoft Frank - Dutch (Netherlands)
+                  </span>
+                </li>
+                <li
+                  class="text-gray-900 dark:text-white relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-2"
+                  role="option"
+                >
+                  <span
+                    class="block truncate"
+                    data-voices="                  Google Deutsch
+                    "
+                  >
+                    Google Deutsch
+                  </span>
+                </li>
+                <li
+                  class="text-gray-900 dark:text-white relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-3"
+                  role="option"
+                  data-voices="Google US English"
+                >
+                  <span class="block truncate" data-voices="Google US English">
+                    Google US English
+                  </span>
+                </li>
+                <li
+                  class="text-gray-900 dark:text-white relative cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-4"
+                  role="option"
+                >
+                  <span
+                    class="block truncate"
+                    data-voices="Google UK English Female"
+                  >
+                    Google UK English Female
+                  </span>
+                </li>
+                <li
+                  class="text-gray-900 relative dark:text-white cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-5"
+                  role="option"
+                >
+                  <span
+                    class="block truncate"
+                    data-voices="Google UK English Male"
+                  >
+                    Google UK English Male
+                  </span>
+                </li>
+                <li
+                  class="text-gray-900 relative dark:text-white cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-6"
+                  role="option"
+                  data-voices="Google español"
+                >
+                  <span class="block truncate" data-voices="Google español">
+                    Google español
+                  </span>
+                </li>
+                <li
+                  class="text-gray-900 relative dark:text-white cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-7"
+                  role="option"
+                >
+                  <span
+                    class="block truncate"
+                    data-voices="Google español de Estados Unidos"
+                  >
+                    Google español de Estados Unidos
+                  </span>
+                </li>
+                <li
+                  class="text-gray-900 relative dark:text-white cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-8"
+                  role="option"
+                >
+                  <span class="block truncate" data-voices="Google français">
+                    Google français
+                  </span>
+                </li>
+                <li
+                  class="text-gray-900 relative dark:text-white cursor-default select-none py-2 pl-3 pr-9"
+                  id="listbox-option-9"
+                  role="option"
+                >
+                  <span class="block truncate" data-voices="Google हिन्दी">
+                    Google हिन्दी
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <button
+            id="theme-toggle"
+            type="button"
+            class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+          >
+            <svg
+              id="theme-toggle-dark-icon"
+              class="hidden w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+              ></path>
+            </svg>
+            <svg
+              id="theme-toggle-light-icon"
+              class="hidden w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <div>
+            <label
+              id="listbox-label"
+              class="block text-sm font-medium leading-6 text-gray-900 dark:text-white"
+              >Font Size
+            </label>
+            <input
+              id="slider"
+              type="range"
+              min="15"
+              max="50"
+              value="0"
+              step="1"
+              class="w-96 h-full appearance-none flex items-center cursor-pointer bg-transparent z-30 [&::-webkit-slider-thumb]:bg-blue-600 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-0 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:appearance-none [&::-moz-range-thumb]:bg-blue-600 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:w-2.5 [&::-moz-range-thumb]:h-2.5 [&::-moz-range-thumb]:appearance-none [&::-ms-thumb]:bg-blue-600 [&::-ms-thumb]:rounded-full [&::-ms-thumb]:border-0 [&::-ms-thumb]:w-2.5 [&::-ms-thumb]:h-2.5 [&::-ms-thumb]:appearance-none [&::-webkit-slider-runnable-track]:bg-neutral-200 [&::-webkit-slider-runnable-track]:rounded-full [&::-webkit-slider-runnable-track]:overflow-hidden [&::-moz-range-track]:bg-neutral-200 [&::-moz-range-track]:rounded-full [&::-ms-track]:bg-neutral-200 [&::-ms-track]:rounded-full [&::-moz-range-progress]:bg-blue-400 [&::-moz-range-progress]:rounded-full [&::-ms-fill-lower]:bg-blue-400 [&::-ms-fill-lower]:rounded-full [&::-webkit-slider-thumb]:shadow-[-999px_0px_0px_990px_#4e97ff]"
+              oninput="const elements = document.querySelectorAll('#listbox-label'); 
+              elements.forEach(element => element.style.fontSize = this.value + 'px');
+              elements.forEach(element => element.style.height = this.value + 'px');
+              if (elements.length > 0) {
+  elements.forEach(element => {
+    const height = Math.max(this.value, 24); // Bepaal de hoogte
+    element.style.height = height + 'px';
+  });
+} else {
+console.log('fout element niet gevonden')}
+              "
+            />
+          </div>
+          <div>
+            <label
+              id="listbox-label"
+              class="block text-sm font-medium leading-6 text-gray-900 dark:text-white"
+              >Scherm helderheid
+            </label>
+            <input
+              id="slider"
+              type="range"
+              min="15"
+              max="50"
+              value="0"
+              step="1"
+              class="w-96 h-full appearance-none flex items-center cursor-pointer bg-transparent z-30 [&::-webkit-slider-thumb]:bg-blue-600 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-0 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:appearance-none [&::-moz-range-thumb]:bg-blue-600 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:w-2.5 [&::-moz-range-thumb]:h-2.5 [&::-moz-range-thumb]:appearance-none [&::-ms-thumb]:bg-blue-600 [&::-ms-thumb]:rounded-full [&::-ms-thumb]:border-0 [&::-ms-thumb]:w-2.5 [&::-ms-thumb]:h-2.5 [&::-ms-thumb]:appearance-none [&::-webkit-slider-runnable-track]:bg-neutral-200 [&::-webkit-slider-runnable-track]:rounded-full [&::-webkit-slider-runnable-track]:overflow-hidden [&::-moz-range-track]:bg-neutral-200 [&::-moz-range-track]:rounded-full [&::-ms-track]:bg-neutral-200 [&::-ms-track]:rounded-full [&::-moz-range-progress]:bg-blue-400 [&::-moz-range-progress]:rounded-full [&::-ms-fill-lower]:bg-blue-400 [&::-ms-fill-lower]:rounded-full [&::-webkit-slider-thumb]:shadow-[-999px_0px_0px_990px_#4e97ff]"
+              oninput="const bright = document.getElementById('bright'); bright.style.filter = brightness(this.value / 100 + '%')"
+            />
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="../assets/javascript/settingspanel.js"></script>
+  </body>
+</html>
