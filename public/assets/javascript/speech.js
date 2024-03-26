@@ -53,6 +53,9 @@ function setup() {
 
 async function sendPrompt(file, prompt, language) {
   try {
+    // Remove leading '\"' and trailing '"' from the file URL
+    file = file.replace(/^\"|\"$/g, '');
+
     const datasend = { file, prompt, language };
     const jsonData = JSON.stringify(datasend);
 
@@ -69,7 +72,6 @@ async function sendPrompt(file, prompt, language) {
       if (contentType && contentType.includes("application/json")) {
         const data = await response.json();
         const text = data.text;
-        // const image = data.file;
 
         // Speak the text using the p5.js library
         speech.speak(text);
@@ -85,6 +87,7 @@ async function sendPrompt(file, prompt, language) {
     console.log(err);
   }
 }
+
 
 
 window.addEventListener("load", (event) => {
