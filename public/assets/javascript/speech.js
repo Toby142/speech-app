@@ -74,10 +74,6 @@ async function sendPrompt(file, prompt, language) {
         // Speak the text using the p5.js library
         speech.speak(text);
 
-        // Redirect naar de pagina met de image URL
-        // window.location.href = `/generate-prompt?imageUrl=${encodeURIComponent(
-        //   JSON.stringify(image) + "?imageUrl=" ${encodeURIComponent(JSON.stringify(text))}
-        // )}`;
         console.log("Upload response:", data);
       } else {
         console.warn("Unexpected response format. Not JSON.");
@@ -85,12 +81,11 @@ async function sendPrompt(file, prompt, language) {
     } else {
       console.error("Failed to upload photo:", response.statusText);
     }
-
-    console.log("Upload response:", data);
   } catch (err) {
     console.log(err);
   }
 }
+
 
 window.addEventListener("load", (event) => {
   const speak = new p5.Speech(); //callback, speech synthesis object
