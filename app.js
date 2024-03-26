@@ -308,7 +308,7 @@ app.post("/speech", async (req, res) => {
         "X-RapidAPI-Host": "gemini-pro-vision-ai1.p.rapidapi.com"
       },
       data: {
-        contents: [
+        contents: [ 
           {
             parts: [
               {
