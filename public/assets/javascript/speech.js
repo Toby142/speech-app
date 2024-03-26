@@ -57,9 +57,9 @@ async function sendPrompt(file, prompt, language) {
   console.log("File:", file);
   console.log("Language:", language);
 
-  newFile = file.replace(/^"|"$/g, "");
+  let newFile = file.replace(/^"|"$/g, ""); // Declare newFile using let
 
-  console.log("File:", newFile); 
+  console.log("new file:", newFile); 
 
   try {
 
@@ -94,6 +94,7 @@ async function sendPrompt(file, prompt, language) {
     console.log(err);
   }
 }
+
 
 
 
