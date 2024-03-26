@@ -52,11 +52,18 @@ function setup() {
 }
 
 async function sendPrompt(file, prompt, language) {
-  try {
-    // Remove leading '\"' and trailing '"' from the file URL
-    file = file.replace(/^\"|\"$/g, '');
 
-    const datasend = { file, prompt, language };
+  console.log("Prompt:", prompt);
+  console.log("File:", file);
+  console.log("Language:", language);
+
+  newFile = file.replace(/^"|"$/g, "");
+
+  console.log("File:", newFile); 
+
+  try {
+
+    const datasend = { newFile, prompt, language };
     const jsonData = JSON.stringify(datasend);
 
     const response = await fetch("/speech", {
