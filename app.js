@@ -7,7 +7,6 @@ const { getJson } = require("serpapi");
 const mobilenet = require("@tensorflow-models/mobilenet");
 const serpapi = require("serpapi");
 const app = express();
-const port = 3000;
 const axios = require("axios");
 const geoip = require("geoip-lite");
 const bcrypt = require("bcrypt");
@@ -32,6 +31,7 @@ app.use(express.json());
 
 // get api key
 const apiKey = process.env.API_KEY;
+const port = process.env.PORT || 3000;
 
 app.use(
   session({
@@ -390,7 +390,7 @@ app.post("/upload", upload.single("file"), async (req, res) => {
     }
     console.log("Received photo:", fileObject);
 
-    const imageUrl = `http://localhost:3000/uploads/${req.file.filename}`;
+    const imageUrl = `http://speech-app-production.up.railway.app/uploads/${req.file.filename}`;
 
     res.json({ imageUrl }); // Send the image URL as JSON
 
@@ -526,5 +526,6 @@ app.get("/fonts/:filename", (req, res) => {
 
 // Start de server
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server gestart op port ${port}`);
+
 });
